@@ -6,7 +6,7 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="40dp"
+    android:paddingTop="50dp"
     tools:context="com.example.dktique.shoppingapplication1.MainActivity">
 
 
@@ -30,6 +30,7 @@
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

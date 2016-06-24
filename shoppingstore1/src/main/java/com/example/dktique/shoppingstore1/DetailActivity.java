@@ -1,19 +1,22 @@
 package com.example.dktique.shoppingstore1;
 
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
-
-    Button btnAjouter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +48,13 @@ public class DetailActivity extends AppCompatActivity {
 
     public void AddToPanier(View v) {
 
-        Toast.makeText(DetailActivity.this, "Welcome to panier", Toast.LENGTH_SHORT).show();
-
-        Produit produit1 = (Produit) getIntent().getSerializableExtra("produit");
-        Intent intent1=new Intent(DetailActivity.this, AuthentificationPanier.class);
-        intent1.putExtra("produit", produit1);
-        startActivity(intent1);
+        Toast.makeText(DetailActivity.this, "Produit ajouté au panier", Toast.LENGTH_SHORT).show();
+        Intent intent2=new Intent(DetailActivity.this, MainActivity.class);
+        startActivity(intent2);
 
 
     }
+
+
 
 }

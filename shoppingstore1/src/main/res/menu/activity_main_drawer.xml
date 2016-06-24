@@ -3,17 +3,32 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Mes Achats" />
+            android:id="@+id/nav_profil"
+            android:icon="@drawable/ic_stat_girl_testimonial"
+            android:title="Mon Profil" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Commande" />
+            android:id="@+id/nav_achat"
+            android:icon="@drawable/ic_stat_bag_6"
+            android:title="Mes Achats" />
+
+        <item
+            android:id="@+id/nav_promotion"
+            android:icon="@drawable/ic_stat_10992_200"
+            android:title="Promotion" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_stat_ic_settings_48px_128"
             android:title="Setting" />
+        <item
+            android:id="@+id/nav_notif"
+            android:icon="@drawable/ic_stat_xbell"
+            android:title="Notification" />
+
+
+        <item
+            android:id="@+id/nav_dec"
+
+            android:title="Deconnecter" />
     </group>
 
     <item android:title="Communicate">
@@ -21,11 +36,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Partager" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Envoyer" />
         </menu>
     </item>
 

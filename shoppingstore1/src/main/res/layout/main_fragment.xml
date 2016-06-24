@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="15dp"
+        android:id="@+id/letext"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="1dp"
+        android:text="Filtrer"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:layout_marginTop="9dp"
+        android:background="#bcb7b7"
+        android:textColor="#080808"
+
+        android:textSize="9dp"
+        android:drawableRight="@drawable/ic_yu"
+        android:textStyle="italic|bold"
+
+
+
+        />
+
+    <Spinner
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="1dp"
+        android:id="@+id/spinner"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="2dp"
+        android:background="#bcb7b7"
+        android:clickable="true"
+
+
+
+        />
+
+
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="?android:attr/activatedBackgroundIndicator"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
         android:id="@+id/listView"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:choiceMode="singleChoice"
-        android:dividerHeight="2dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
+        android:divider="#fdc8e1"
+        android:dividerHeight="2px"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center_horizontal"
+         />
 </LinearLayout>

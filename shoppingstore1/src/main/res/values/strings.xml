@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shop1</string>
+    <string name="app_name">Ishop</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,15 +7,16 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="summary">
-        <item>Blouson cuir.  Couleur marron foncé. 4 poches avec fermetures devant, 2 poches intérieures, renforcement coudières. </item>
-        <item>Matière principale  Cuir Saison : Automne  Hive</item>
-        <item>Couleur : Marron Style : Casual</item>
-        <item>livraison 200 DA</item>
-        <item>Livraison gsqdqqdsdqduite</item>
-        <item>Livraison grqQSDDDDDDDDDDDite</item>
-        <item>Livraison QDSSSSSSSStuite</item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
+        <item>Matiere Première </item>
 
     </string-array>
 
     <string name="title_activity_activity_panier">ActivityPanier</string>
+    <string name="title_activity_the_activity_details">TheActivityDetails</string>
 </resources>

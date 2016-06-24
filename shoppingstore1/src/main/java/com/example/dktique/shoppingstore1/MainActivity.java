@@ -15,14 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -33,6 +37,10 @@ public class MainActivity extends AppCompatActivity
     private ViewPager mViewPager;
     ListView listView;
     ArrayAdapter adapter;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +61,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -81,28 +83,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -110,13 +90,38 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_profil) {
+            Intent intent=new Intent(this,Profile.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_achat) {
+            Intent intent1=new Intent(this,Commande.class);
+            startActivity(intent1);
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_promotion) {
+            Intent intent1=new Intent(this,Promotion.class);
+            startActivity(intent1);
+
+
+        }else if (id == R.id.nav_manage) {
+
+            Intent intent4=new Intent(this,Setting.class);
+            startActivity(intent4);
+
+        }else if (id == R.id.nav_notif) {
+
+            Intent intent3=new Intent(this,Notification.class);
+            startActivity(intent3);
+
+        }else if (id == R.id.nav_dec) {
+            finish();
+
+        }
+
+
+
+        else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
@@ -127,32 +132,14 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        String [] adapterValues=new String[]{"Accessoire","Chausures","Vetements","Ensemble","Sac"};
+        String [] adapterValues=new String[]{"Accessoire","Chaussure","Vetement","Ensemble","Sac"};
         adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,adapterValues);
 
-        MenuItem item=menu.findItem(R.id.spinner);
-        Spinner spinner=(Spinner)item.getActionView();
-        spinner.setAdapter((SpinnerAdapter) adapter);
-     /*   spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), (Integer) adapter.getItem(position),Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
+       // MenuItem item=menu.findItem(R.id.spinner);
 
         return true;
     }
@@ -166,9 +153,22 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_favorite) {
+            Intent intent3=new Intent(this,Panier.class);
+            startActivity(intent3);
+            return true;
+        }
 
-            Intent intent=new Intent(this,Testt.class);
-            startActivity(intent);
+
+
+        if (id == R.id.action_favorite1) {
+            Intent intent1=new Intent(this,Commande.class);
+            startActivity(intent1);
+            return true;
+        }
+
+        if (id == R.id.action_favorite2) {
+            Intent intent1=new Intent(this,Notification.class);
+            startActivity(intent1);
             return true;
         }
 

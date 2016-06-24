@@ -44,29 +44,28 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // mettre le layout une seule fois lorsque convertView est null
-        if (convertView == null) {
-            convertView = parent.inflate(context, R.layout.list_items, null);
-        }
+        if (convertView == null) {convertView = parent.inflate(context, R.layout.list_items, null);}
         ImageView coverIcon = (ImageView) convertView.findViewById(R.id.coverIcon);
-        TextView textTitle = (TextView) convertView.findViewById(R.id.title);
-        TextView textAuthors = (TextView) convertView.findViewById(R.id.authors);
-        TextView textEditor = (TextView) convertView.findViewById(R.id.editor);
+        TextView textNom = (TextView) convertView.findViewById(R.id.nom);
+        TextView textMarque = (TextView) convertView.findViewById(R.id.marque);
+        TextView textTaille = (TextView) convertView.findViewById(R.id.taille);
+
+        TextView textPrix = (TextView) convertView.findViewById(R.id.prix);
         coverIcon.setImageResource(produitList.get(position).getIconCover());
-        textTitle.setText(produitList.get(position).getNom());
-        // Récupérer la liste des auteurs
-        List<String> bookAuthors = produitList.get(position).getTaille();
-        // Séparer la liste des auteurs par une virgule
-        String authors = bookAuthors.get(0);
-        int listSize = bookAuthors.size();
-        if (listSize > 1) {
-            for (int i = 1; i < listSize; i++) {
-                authors = authors + ", " + bookAuthors.get(i);
-            }
-            textAuthors.setText("Auteur(s): "+ authors);
-        }
-        textEditor.setText("Editeur: " + produitList.get(position).getPrix());
+        textNom.setText("Nom : " + produitList.get(position).getNom());
+        textMarque.setText("Marque : "+produitList.get(position).getMarque());
+
+       String Tailles = produitList.get(position).getTaille();
+
+        textTaille.setText("Tailles : " +Tailles);
+
+        textPrix.setText("Prix : " + produitList.get(position).getPrix());
         return convertView;
     }
+
+
+
+
 
     /* Implementation du filtre
        On doit redéfinir la méthode getFilter()
@@ -80,6 +79,8 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         return valueFilter;
     }
 
+
+//*******************************************************************************
     // Une nouvelle classe de type Filter est définie
     // Quand on va instancier ValueFilter, deux méthodes sont appelées :  : performFiltering et publishResults
 
@@ -98,9 +99,10 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
                 for (int i = 0; i < mFilterList.size(); i++) {
                     produit = mFilterList.get(i);
                     // Utiliser la catégorie comme filtre
-                    if ((produit.getCategory().toUpperCase().contains(constraint.toString().toUpperCase()))) {
+                    if ((produit.getCategory().toUpperCase().contains(constraint.toString().toUpperCase()))||(produit.getCategorie2().toUpperCase().contains(constraint.toString().toUpperCase()))) {
                         listFilter.add(produit);
                     }
+
                 }
                 filterResults.count = listFilter.size();
                 filterResults.values = listFilter;

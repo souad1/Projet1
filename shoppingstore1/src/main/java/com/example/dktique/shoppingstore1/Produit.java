@@ -7,11 +7,15 @@ import java.util.List;
 public class Produit implements Serializable {
 
     private String nom;
-    private List<String> taille;
+    private String taille;
     private String prix;
-    private String year;
-    private String summary;
+    private String marque;
+    private String description;
+    private String style;
+    private String saison;
+    private String matiere;
     private String category;
+    private String categorie2;
     private int cover;
     private int iconCover;
 
@@ -19,7 +23,7 @@ public class Produit implements Serializable {
         return nom;
     }
 
-    public List<String> getTaille() {
+    public String getTaille() {
         return taille;
     }
 
@@ -27,55 +31,86 @@ public class Produit implements Serializable {
         return prix;
     }
 
-    public String getYear() {
-        return year;
-    }
 
-    public String getSummary() {
-        return summary;
-    }
 
     public String getCategory() {
         return category;
     }
 
-    public int getCover() {
-        return cover;
-    }
+    public String getCategorie2() {return categorie2;}
+
+    public int getCover() { return cover; }
 
     public int getIconCover() {
         return iconCover;
     }
 
+
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public String getSaison() {
+        return saison;
+    }
+
+    public String getMatiere() {
+        return matiere;
+    }
+
+    public void setPrix(String prix) {
+
+        this.prix = prix;
+    }
+
+
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public void setTaille(List<String> taille) {
+    public void setTaille(String taille) {
         this.taille = taille;
     }
 
-    public void setPrix(String prix) {
-        this.prix = prix;
+    public void setMarque(String marque) {
+        this.marque = marque;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public void setSaison(String saison) {
+        this.saison = saison;
+    }
+
+    public void setMatiere(String matiere) {
+        this.matiere = matiere;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
+    public void setCategorie2(String categorie2) { this.categorie2 = categorie2; }
+
     public void setCover(int cover) {
         this.cover = cover;
     }
 
-    public void setIconCover(int iconCover) {
-        this.iconCover = iconCover;
-    }
+    public void setIconCover(int iconCover) { this.iconCover = iconCover; }
+
 }

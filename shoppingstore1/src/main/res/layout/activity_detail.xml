@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="match_parent" >
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,9 +13,16 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="esi.dz.bookfragments.DetailActivity">
+        android:background="#ffffff"
+
+        tools:context="com.example.dktique.shoppingstore1.DetailActivity">
+
+
+
+
 
         <FrameLayout
+            android:background="#ffffff"
             android:id="@+id/frameLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
