@@ -47,10 +47,8 @@ public class Panier extends AppCompatActivity {
         List<Produit> produitList = new ArrayList<Produit>();
 
 
-        List Tailles = new ArrayList();
-        Tailles.add("38");
-        Tailles.add("40");
-        Tailles.add("42");
+        String Tailles = "38, 40, 42";
+
         Produit produit = new Produit();
         produit.setNom("Chemise");
         produit.setTaille(Tailles);

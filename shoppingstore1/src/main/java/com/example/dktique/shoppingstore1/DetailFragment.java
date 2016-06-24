@@ -46,7 +46,7 @@ public class DetailFragment extends Fragment {
             nom.setText("Nom : "+ produit.getNom());
             marque.setText("Marque : " + produit.getMarque());
             prix.setText("Prix :"+ produit.getPrix());
-            taille.setText("Taille : "+ produit.getTaille().get(0)+" , " +produit.getTaille().get(1)+" , "+ produit.getTaille().get(2));
+            taille.setText("Taille : "+ produit.getTaille());
             style.setText("Style : "+(produit.getStyle()));
             saison.setText("Saison : "+(produit.getSaison()));
 
