@@ -38,7 +38,7 @@ public class Panier extends AppCompatActivity {
 
 
 
-        customAdapterPanier = new CustomAdapterPanier(this,getProduitList2());
+        customAdapterPanier = new CustomAdapterPanier(this,ll);
         ListView listView1 = (ListView) findViewById(R.id.listView2);
         listView1.setAdapter(customAdapterPanier);
         customAdapterPanier.notifyDataSetChanged();

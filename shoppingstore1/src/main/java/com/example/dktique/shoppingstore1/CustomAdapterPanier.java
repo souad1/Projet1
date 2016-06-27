@@ -51,9 +51,9 @@ public class CustomAdapterPanier extends BaseAdapter {
         if (convertView == null) {
             convertView = parent.inflate(context, R.layout.list_items2, null);
         }
-        ImageView coverIcon = (ImageView) convertView.findViewById(R.id.imageproduit);
+       // ImageView coverIcon = (ImageView) convertView.findViewById(R.id.imageproduit);
         TextView name = (TextView) convertView.findViewById(R.id.Name);
-        TextView brand = (TextView) convertView.findViewById(R.id.Brand);
+       // TextView brand = (TextView) convertView.findViewById(R.id.Brand);
         TextView price= (TextView) convertView.findViewById(R.id.Price);
         EditText qtt= (EditText) convertView.findViewById(R.id.editText);
 
@@ -61,9 +61,9 @@ public class CustomAdapterPanier extends BaseAdapter {
 
         name.setText(produitListPanier.get(position).getNom());
         price.setText(produitListPanier.get(position).getPrix());
-        brand.setText("Marque : " + produitListPanier.get(position).getMarque());
+       // brand.setText("Marque : " + produitListPanier.get(position).getMarque());
 
-        coverIcon.setImageResource(Integer.parseInt(produitListPanier.get(position).getIconCover()));
+       // coverIcon.setImageResource(Integer.parseInt(produitListPanier.get(position).getIconCover()));
         ImageButton btn =(ImageButton)  convertView.findViewById (R.id.delete);
 
         qt = (TextView) convertView.findViewById(R.id.qt);
