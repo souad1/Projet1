@@ -18,13 +18,11 @@ public class Produit implements Serializable {
     private String categorie2;
     private String cover;
     private String iconCover;
-    private String quantite;
+    private int quantite;
 
-    public void setQuantite(String quantite) {
-        this.quantite = quantite;
-    }
 
-    public String getQuantite() {
+
+    public int getQuantite() {
         return quantite;
     }
 
@@ -122,4 +120,6 @@ public class Produit implements Serializable {
 
     public void setIconCover(String iconCover) { this.iconCover = iconCover; }
 
+    public void setQuantite(int quantite) {
+    }
 }
