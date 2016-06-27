@@ -91,11 +91,11 @@
 
 
 
-    <EditText
+    <TextView
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:inputType="number"
+        android:id="@+id/quantity"
+
         android:textSize="14dp"
         android:typeface="serif"
         android:textColor="#020202"
@@ -105,7 +105,7 @@
         android:layout_below="@+id/Price"
         android:layout_toRightOf="@+id/qt"
         android:layout_toEndOf="@+id/qt"
-        android:hint="1"
+
         android:editable="true" />
 
 

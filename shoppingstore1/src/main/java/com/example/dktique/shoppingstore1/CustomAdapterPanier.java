@@ -13,6 +13,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dktique.shoppingstore1.service.DataBaseService;
+
 import java.util.List;
 
 
@@ -21,8 +23,8 @@ public class CustomAdapterPanier extends BaseAdapter {
     private Context context;
     private List<Produit> produitListPanier;
 
-    TextView qt;
-    SeekBar sk;
+
+
 
 
     public CustomAdapterPanier(Context context, List<Produit> produitListPanier) {
@@ -55,18 +57,23 @@ public class CustomAdapterPanier extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.Name);
        // TextView brand = (TextView) convertView.findViewById(R.id.Brand);
         TextView price= (TextView) convertView.findViewById(R.id.Price);
-        EditText qtt= (EditText) convertView.findViewById(R.id.editText);
+        TextView qtt= (TextView) convertView.findViewById(R.id.quantity);
+
+
 
 
 
         name.setText(produitListPanier.get(position).getNom());
         price.setText(produitListPanier.get(position).getPrix());
+        qtt.setText(""+produitListPanier.get(position).getQuantite());
        // brand.setText("Marque : " + produitListPanier.get(position).getMarque());
 
        // coverIcon.setImageResource(Integer.parseInt(produitListPanier.get(position).getIconCover()));
         ImageButton btn =(ImageButton)  convertView.findViewById (R.id.delete);
 
-        qt = (TextView) convertView.findViewById(R.id.qt);
+
+
+
 
         //*********************************
 
@@ -79,6 +86,10 @@ public class CustomAdapterPanier extends BaseAdapter {
                                        produitListPanier.remove(index.intValue());
                                        notifyDataSetChanged();
                                        Toast.makeText(context,"vous avez supprimer un objet",Toast.LENGTH_SHORT).show();
+
+                                      /* DataBaseService dbs=new DataBaseService(this);
+
+                                       dbs.delete(produit);*/
 
 
                                    }

@@ -32,7 +32,7 @@ public class MainFragment extends Fragment {
     private Context context2;
     private List<Produit> product = new ArrayList<Produit>();
 
-    public static  List<Produit> listProduct = new ArrayList<>();
+  //  public static  List<Produit> listProduct = new ArrayList<>();
 
 
 
@@ -70,90 +70,6 @@ public class MainFragment extends Fragment {
         spinner.setAdapter(dataAdapter);
 
 
-
-
-        if (position==0 ) {
-
-
-       /*     List<Produit> femme= new ArrayList<Produit>();
-            //cutomAdapter.getFilter().filter("FEMME");
-
-            int i=0;
-
-            while(i<product.size()){
-
-                if (product.get(i).getCategory().equals("Femme")){
-                    femme.add(product.get(i));
-                }
-            }
-*/
-           /* Toast.makeText(getActivity(),""+position,Toast.LENGTH_SHORT).show();
-
-            cutomAdapter=new CustomAdapter(getActivity(),product);
-            cutomAdapter.notifyDataSetChanged();
-            listView.setAdapter(cutomAdapter);*/
-
-        }
-
-        else if (position==1 ) {
-
-        }
-
-       else if (position==2 ) {
-
-        }
-      /*  else {
-            if (position==1) {
-                // cutomAdapter.getFilter().filter("HOMME");
-                cutomAdapter=new CustomAdapter(getActivity(),product);
-            }
-            else {
-                //cutomAdapter.getFilter().filter("ENFANT");
-                cutomAdapter=new CustomAdapter(getActivity(),product);
-            }
-        }*/
-      /*  spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                Object item = parent.getItemAtPosition(pos);
-                String itema = parent.getItemAtPosition(pos).toString();
-
-                if (itema=="Accessoires" ) {
-                    cutomAdapter.getFilter().filter("accessoires");
-
-                }
-                else if (itema=="Veste") {
-                    cutomAdapter.getFilter().filter("veste");
-
-                }
-                else if (itema=="Vetements"){
-                    cutomAdapter.getFilter().filter("vetements");
-                }
-                else if (itema=="Chaussures"){
-
-                    cutomAdapter.getFilter().filter("chaussures");
-                }
-              else if (itema=="Sac"){
-
-                    cutomAdapter.getFilter().filter("sac");
-                }
-
-            }
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-                // listView.setAdapter(cutomAdapter);
-            }
-        });*/
-
-        // Showing selected spinner item
-       // listView.setAdapter(cutomAdapter);
-
-       /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showView((Produit) cutomAdapter.getItem(position));
-            }
-        });
-*/
         return v;
     }
 
