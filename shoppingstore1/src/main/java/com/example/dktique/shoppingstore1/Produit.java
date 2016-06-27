@@ -16,8 +16,17 @@ public class Produit implements Serializable {
     private String matiere;
     private String category;
     private String categorie2;
-    private int cover;
-    private int iconCover;
+    private String cover;
+    private String iconCover;
+    private String quantite;
+
+    public void setQuantite(String quantite) {
+        this.quantite = quantite;
+    }
+
+    public String getQuantite() {
+        return quantite;
+    }
 
     public String getNom() {
         return nom;
@@ -39,9 +48,9 @@ public class Produit implements Serializable {
 
     public String getCategorie2() {return categorie2;}
 
-    public int getCover() { return cover; }
+    public String getCover() { return cover; }
 
-    public int getIconCover() {
+    public String getIconCover() {
         return iconCover;
     }
 
@@ -107,10 +116,10 @@ public class Produit implements Serializable {
 
     public void setCategorie2(String categorie2) { this.categorie2 = categorie2; }
 
-    public void setCover(int cover) {
+    public void setCover(String cover) {
         this.cover = cover;
     }
 
-    public void setIconCover(int iconCover) { this.iconCover = iconCover; }
+    public void setIconCover(String iconCover) { this.iconCover = iconCover; }
 
 }

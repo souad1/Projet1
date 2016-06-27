@@ -1,1 +1,1 @@
-include ':shoppingstore1'
+include ':shoppingstore1', ':shoppingStoreBackend'

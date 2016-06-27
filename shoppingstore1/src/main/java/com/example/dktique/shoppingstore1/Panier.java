@@ -47,14 +47,14 @@ public class Panier extends AppCompatActivity {
         List<Produit> produitList = new ArrayList<Produit>();
 
 
-        String Tailles = "38, 40, 42";
+       /* String Tailles = "38, 40, 42";
 
         Produit produit = new Produit();
         produit.setNom("Chemise");
         produit.setTaille(Tailles);
         produit.setPrix("4500 DA");
-        produit.setIconCover(R.drawable.ic_vetementh2);
-        produit.setCover(R.drawable.ic_vetementh2);
+      //  produit.setIconCover(R.drawable.ic_vetementh2);
+      //  produit.setCover(R.drawable.ic_vetementh2);
         produit.setMarque("KENZO");
         produit.setDescription(listSummary[0]);
         produit.setCategory("Homme");
@@ -70,8 +70,8 @@ public class Panier extends AppCompatActivity {
 
         produit1.setTaille(Tailles);
         produit1.setPrix("3500 DA");
-        produit1.setIconCover(R.drawable.ic_chemisehomme);
-        produit1.setCover(R.drawable.ic_chemisehomme);
+      //  produit1.setIconCover(R.drawable.ic_chemisehomme);
+      //  produit1.setCover(R.drawable.ic_chemisehomme);
         produit1.setMarque("BALENCIAGA");
         produit1.setDescription(listSummary[0]);
         produit1.setCategory("Homme");
@@ -86,8 +86,8 @@ public class Panier extends AppCompatActivity {
         produit6.setNom("Escarpins");
         produit6.setTaille(Tailles);
         produit6.setPrix("3500 DA");
-        produit6.setIconCover(R.drawable.ic_1femmecha0);
-        produit6.setCover(R.drawable.ic_1femmecha0);
+      //  produit6.setIconCover(R.drawable.ic_1femmecha0);
+      //  produit6.setCover(R.drawable.ic_1femmecha0);
         produit6.setMarque("CHLOÉ");
         produit6.setDescription(listSummary[0]);
         produit6.setCategory("Femme");
@@ -101,8 +101,8 @@ public class Panier extends AppCompatActivity {
         produit7.setNom("Mini-Bottes à talons");
         produit7.setTaille(Tailles);
         produit7.setPrix("3500 DA");
-        produit7.setIconCover(R.drawable.ic_1femmecha1);
-        produit7.setCover(R.drawable.ic_1femmecha1);
+       // produit7.setIconCover(R.drawable.ic_1femmecha1);
+       // produit7.setCover(R.drawable.ic_1femmecha1);
         produit7.setMarque("GIUSEPPE ZANOTTI");
         produit7.setDescription(listSummary[0]);
         produit7.setCategory("Femme");
@@ -117,8 +117,8 @@ public class Panier extends AppCompatActivity {
         produit100.setNom("Veste");
         produit100.setTaille(Tailles);
         produit100.setPrix("43000 DA");
-        produit100.setIconCover(R.drawable.ic_vestef4);
-        produit100.setCover(R.drawable.ic_vestef4);
+       // produit100.setIconCover(R.drawable.ic_vestef4);
+       // produit100.setCover(R.drawable.ic_vestef4);
         produit100.setMarque("GIVENCHY");
         produit100.setDescription(listSummary[0]);
         produit100.setCategory("Femme");
@@ -126,7 +126,7 @@ public class Panier extends AppCompatActivity {
         produit100.setMatiere("Cuir");
         produit100.setSaison("Toutes saisons");
         produit100.setStyle("Chic");
-        produitList.add(produit100);
+        produitList.add(produit100);*/
 
 
 

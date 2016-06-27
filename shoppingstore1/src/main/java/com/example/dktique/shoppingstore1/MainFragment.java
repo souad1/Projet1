@@ -1,9 +1,11 @@
 package com.example.dktique.shoppingstore1;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.dktique.shoppingstore1.service.GetProduitTask;
+import com.example.dktique.shoppingstore1.util.UtilService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +29,31 @@ public class MainFragment extends Fragment {
     CustomAdapter cutomAdapter ;
     CustomAdapter  cutomAdapter2;
     Spinner spinner;
+    private Context context2;
+    private List<Produit> product = new ArrayList<Produit>();
+
+    public static  List<Produit> listProduct = new ArrayList<>();
 
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_fragment, null);
-        final ListView listView = (ListView) v.findViewById(R.id.listView);
-        //CustomSpinner =new customSpinner (getActivity(),getProduitList());
+
+        Bundle bundle = getArguments();
+        int position = bundle.getInt("pos");
+
+        String poss=""+position;
+
+
+        new GetProduitTask(getActivity()).execute("hdpi",poss);
+
+        ListView listView = (ListView) v.findViewById(R.id.listView);
+       cutomAdapter = (CustomAdapter) listView.getAdapter();
+        if (cutomAdapter!=null){product=cutomAdapter.getProduitList();}
+
+        cutomAdapter=new CustomAdapter(getActivity(),product);
+
+
         final Spinner spinner = (Spinner)v. findViewById(R.id.spinner);
         List<String> categories = new ArrayList<String>();
         categories.add("Accessoires");
@@ -38,34 +61,58 @@ public class MainFragment extends Fragment {
         categories.add("Veste");
         categories.add("Sac");
         categories.add("Chaussures");
-        //categories.add("Travel");
+
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categories);
 
-        // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
-        cutomAdapter=new CustomAdapter(getActivity(),getProduitListFemme());
-        Bundle bundle = getArguments();
-        int position = bundle.getInt("pos");
+
+
+
         if (position==0 ) {
+
+
+       /*     List<Produit> femme= new ArrayList<Produit>();
             //cutomAdapter.getFilter().filter("FEMME");
-            cutomAdapter=new CustomAdapter(getActivity(),getProduitListFemme());
+
+            int i=0;
+
+            while(i<product.size()){
+
+                if (product.get(i).getCategory().equals("Femme")){
+                    femme.add(product.get(i));
+                }
+            }
+*/
+           /* Toast.makeText(getActivity(),""+position,Toast.LENGTH_SHORT).show();
+
+            cutomAdapter=new CustomAdapter(getActivity(),product);
+            cutomAdapter.notifyDataSetChanged();
+            listView.setAdapter(cutomAdapter);*/
+
         }
-        else {
+
+        else if (position==1 ) {
+
+        }
+
+       else if (position==2 ) {
+
+        }
+      /*  else {
             if (position==1) {
                 // cutomAdapter.getFilter().filter("HOMME");
-                cutomAdapter=new CustomAdapter(getActivity(),getProduitListHomme());
+                cutomAdapter=new CustomAdapter(getActivity(),product);
             }
             else {
                 //cutomAdapter.getFilter().filter("ENFANT");
-                cutomAdapter=new CustomAdapter(getActivity(),getProduitListEnfants());
+                cutomAdapter=new CustomAdapter(getActivity(),product);
             }
-        }
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        }*/
+      /*  spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
                 String itema = parent.getItemAtPosition(pos).toString();
@@ -89,26 +136,57 @@ public class MainFragment extends Fragment {
 
                     cutomAdapter.getFilter().filter("sac");
                 }
-                // Showing selected spinner item
-               // Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
             }
             public void onNothingSelected(AdapterView<?> parent)
             {
                 // listView.setAdapter(cutomAdapter);
             }
-        });
+        });*/
 
         // Showing selected spinner item
-        listView.setAdapter(cutomAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       // listView.setAdapter(cutomAdapter);
+
+       /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 showView((Produit) cutomAdapter.getItem(position));
             }
         });
+*/
         return v;
     }
 
+
+    public String getScreenDensity() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        String density ="";
+        switch(metrics.densityDpi){
+            case DisplayMetrics.DENSITY_LOW:
+                density="hdpi";
+                break;
+            case DisplayMetrics.DENSITY_MEDIUM:
+                density= "hdpi";
+                break;
+            case DisplayMetrics.DENSITY_HIGH:
+                density="hdpi";
+                break;
+            case DisplayMetrics.DENSITY_XHIGH:
+                density= "hdpi";;
+                break;
+            case DisplayMetrics.DENSITY_XXHIGH:
+                density= "hdpi";
+            case DisplayMetrics.DENSITY_XXXHIGH:
+                density= "hdpi";
+                break;
+        }
+
+        return density;
+
+    }
+
+/*
     public List<Produit> getProduitListEnfants() {
         String[] listSummary = getResources().getStringArray(R.array.summary);
         List<Produit> produitList = new ArrayList<Produit>();
@@ -740,6 +818,10 @@ public class MainFragment extends Fragment {
         produitList.add(produit11);
 
         //1
+
+        //**********************************************************
+
+        ///////////////////////////////////////////////////////////////
         Produit produit12 = new Produit();
         produit12.setNom("Chapeau");
         produit12.setTaille(Tailles1);
@@ -1407,6 +1489,12 @@ public class MainFragment extends Fragment {
         return produitList;
     }
 
+
+    */
+
+
+
+
     public boolean isTwoPane() {
 
         View v  = getActivity().findViewById(R.id.frameLayout);
@@ -1414,23 +1502,6 @@ public class MainFragment extends Fragment {
 
     }
 
-    public void showView (Produit produit) {
-        if (isTwoPane()) {
-            DetailFragment detailFragment = new DetailFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("produit", produit);
-            detailFragment.setArguments(bundle);
-            FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLayout, detailFragment);
 
-            ft.commit();
-
-        } else {
-            Intent intent = new Intent(getActivity(), DetailActivity.class);
-            intent.putExtra("produit", produit);
-            startActivity(intent);
-        }
-
-    }
 
 }

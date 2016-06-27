@@ -9,12 +9,19 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.dktique.shoppingstore1.util.UtilService;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter implements Filterable {
     private Context context;
     private List<Produit> produitList;
+
+    public List<Produit> getProduitList() {
+        return produitList;
+    }
+
     // Pour le fitre
     private ValueFilter  valueFilter;
     private List<Produit> mFilterList;
@@ -51,15 +58,20 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         TextView textTaille = (TextView) convertView.findViewById(R.id.taille);
 
         TextView textPrix = (TextView) convertView.findViewById(R.id.prix);
-        coverIcon.setImageResource(produitList.get(position).getIconCover());
-        textNom.setText("Nom : " + produitList.get(position).getNom());
-        textMarque.setText("Marque : "+produitList.get(position).getMarque());
 
-       String Tailles = produitList.get(position).getTaille();
+      //  coverIcon.setImageResource(Integer.parseInt(produitList.get(position).getIconCover()));
+        // convertir en bitmap
+        coverIcon.setImageBitmap(new UtilService().getImageByte(produitList.get(position).getIconCover()));
 
-        textTaille.setText("Tailles : " +Tailles);
 
-        textPrix.setText("Prix : " + produitList.get(position).getPrix());
+        textNom.setText("" + produitList.get(position).getNom());
+        textMarque.setText(""+produitList.get(position).getMarque());
+
+        // String Tailles = produitList.get(position).getTaille();
+
+         textTaille.setText("Taille : " +produitList.get(position).getTaille());
+
+         textPrix.setText("" + produitList.get(position).getPrix());
         return convertView;
     }
 

@@ -63,7 +63,7 @@ public class CustomAdapterPanier extends BaseAdapter {
         price.setText(produitListPanier.get(position).getPrix());
         brand.setText("Marque : " + produitListPanier.get(position).getMarque());
 
-        coverIcon.setImageResource(produitListPanier.get(position).getIconCover());
+        coverIcon.setImageResource(Integer.parseInt(produitListPanier.get(position).getIconCover()));
         ImageButton btn =(ImageButton)  convertView.findViewById (R.id.delete);
 
         qt = (TextView) convertView.findViewById(R.id.qt);
