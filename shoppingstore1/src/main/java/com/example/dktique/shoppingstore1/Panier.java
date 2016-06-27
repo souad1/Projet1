@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dktique.shoppingstore1.service.DataBaseService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,20 @@ public class Panier extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Toast.makeText(this, "Bienvenue au Panier", Toast.LENGTH_SHORT);
         setContentView(R.layout.activity_panier);
+
+
+        DataBaseService dbs=new DataBaseService(this);
+///        int k= dbs.getProductQuantity("Jupe");
+      //  Toast.makeText(this,"Nombre produit"+k,Toast.LENGTH_SHORT).show();
+
+
+        // List<Produit>  ll =new ArrayList<Produit>();
+       // ll=dbs.getCartProduct();
+
+        List<Produit>  ll=dbs.getCartProduct();
+
+
+
         customAdapterPanier = new CustomAdapterPanier(this,getProduitList2());
         ListView listView1 = (ListView) findViewById(R.id.listView2);
         listView1.setAdapter(customAdapterPanier);
