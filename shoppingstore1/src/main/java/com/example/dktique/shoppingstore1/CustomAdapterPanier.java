@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dktique.shoppingstore1.service.DataBaseService;
+import com.example.dktique.shoppingstore1.util.UtilService;
 
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class CustomAdapterPanier extends BaseAdapter {
 
     private Context context;
     private List<Produit> produitListPanier;
+
+    DataBaseService base;
+    int pos;
 
 
 
@@ -53,7 +57,7 @@ public class CustomAdapterPanier extends BaseAdapter {
         if (convertView == null) {
             convertView = parent.inflate(context, R.layout.list_items2, null);
         }
-       // ImageView coverIcon = (ImageView) convertView.findViewById(R.id.imageproduit);
+        ImageView coverIcon = (ImageView) convertView.findViewById(R.id.imageproduit);
         TextView name = (TextView) convertView.findViewById(R.id.Name);
        // TextView brand = (TextView) convertView.findViewById(R.id.Brand);
         TextView price= (TextView) convertView.findViewById(R.id.Price);
@@ -69,6 +73,8 @@ public class CustomAdapterPanier extends BaseAdapter {
        // brand.setText("Marque : " + produitListPanier.get(position).getMarque());
 
        // coverIcon.setImageResource(Integer.parseInt(produitListPanier.get(position).getIconCover()));
+        coverIcon.setImageBitmap(new UtilService().getImageByte(produitListPanier.get(position).getIconCover()));
+
         ImageButton btn =(ImageButton)  convertView.findViewById (R.id.delete);
 
 
@@ -79,17 +85,30 @@ public class CustomAdapterPanier extends BaseAdapter {
 
        //****************************************************************
         btn.setTag(position);
+        pos=position;
         btn.setOnClickListener(new View.OnClickListener() {
                                    @Override
                                    public void onClick(View v) {
                                        Integer index = (Integer) v.getTag();
                                        produitListPanier.remove(index.intValue());
+
+
+                                      base =new DataBaseService(context);
+
+                                      // base.delete(produitListPanier.get(index.intValue()));
                                        notifyDataSetChanged();
-                                       Toast.makeText(context,"vous avez supprimer un objet",Toast.LENGTH_SHORT).show();
 
-                                      /* DataBaseService dbs=new DataBaseService(this);
+                                       Toast.makeText(context,"vous avez supprimer un objet"+index.intValue(), Toast.LENGTH_SHORT).show();
 
-                                       dbs.delete(produit);*/
+
+
+
+                                       //Toast.makeText(getContext(), "Produit retiré du Panier", Toast.LENGTH_SHORT).show();
+
+
+
+                                     /*  base=new DataBaseService(getContext());
+                                       base.delete(produitlistPanier.get(position));*/
 
 
                                    }

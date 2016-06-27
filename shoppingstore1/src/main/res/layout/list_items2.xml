@@ -105,8 +105,7 @@
         android:layout_below="@+id/Price"
         android:layout_toRightOf="@+id/qt"
         android:layout_toEndOf="@+id/qt"
-
-        android:editable="true" />
+ />
 
 
 </RelativeLayout>
