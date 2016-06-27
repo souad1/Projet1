@@ -20,7 +20,9 @@ public class Produit implements Serializable {
     private String iconCover;
     private int quantite;
 
-
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
 
     public int getQuantite() {
         return quantite;
@@ -120,6 +122,4 @@ public class Produit implements Serializable {
 
     public void setIconCover(String iconCover) { this.iconCover = iconCover; }
 
-    public void setQuantite(int quantite) {
-    }
 }
